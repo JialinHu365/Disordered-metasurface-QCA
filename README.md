@@ -18,29 +18,28 @@ The code provides a simplified implementation of the theoretical model used in t
 
 
 
-##### Requirements
+## Requirements
 
-The code was developped and tested with:
+The code was developed and tested with:
 
-Python 3.8.20
-
-NumPy 1.24.4
-
-SciPy 1.10.1
-
-Matplotlib
+* Python 3.8.20
+* NumPy 1.24.4
+* SciPy 1.10.1
+* Matplotlib
 
 
 
 The required packages can be installed using:
 
+```bash
+
 pip install numpy scipy matplotlib
 
+```
 
 
 
-
-##### Code structure
+## Code structure
 
 The main files are:
 
@@ -60,7 +59,7 @@ The main files are:
 
 
 
-##### Usage
+## Usage
 
 The parameters can be modified in *config.py*.
 
@@ -74,7 +73,7 @@ provided in the *main.py* script.
 
 To reproduce Figure 3-5:
 
-
+```bash
 
 python main.py Figure("Figure3")
 
@@ -82,7 +81,7 @@ python main.py Figure("Figure4")
 
 python main.py Figure("Figure5")
 
-
+```
 
 The required input data and calculation parameters are automatically loaded
 
@@ -104,9 +103,10 @@ The figures are saved in:
 
 
 
-##### Theory data
+## Theory data
 
-The complete theoretical data corresponding to Figures 3–5 are provided in the `theory_data/` directory for reference:
+
+The complete theoretical data corresponding to Figures 3–5 are provided in the `theory_data/` directory for reference:  
 
 `theory_data/`
 
@@ -122,7 +122,7 @@ These folders contain the calculated quantities used in the theoretical analysis
 
 
 
-The figure-generation functions do not directly read data from `theory\_data/`. During reproduction, the required input data, such as the precomputed g2 and particle coordinates, are loaded from the `results/` directory. The subsequent quantities are then recalculated and the corresponding outputs are also saved in `results/`.
+The figure-generation functions do not directly read data from `theory_data/`. During reproduction, the required input data, such as the precomputed g2 and particle coordinates, are loaded from the `results/` directory. The subsequent quantities are then recalculated and the corresponding outputs are also saved in `results/`.
 
 
 
@@ -130,7 +130,7 @@ The figure-generation functions do not directly read data from `theory\_data/`. 
 
 
 
-##### Calculation workflow
+## Calculation workflow
 
 The main calculation follows the sequence:
 
@@ -176,7 +176,7 @@ The implementation follows the equations described in the main text and Supporti
 
 
 
-##### Reproducibility
+## Reproducibility
 
 For calculations involving randomly generated particle configurations, a fixed random seed (seed = 0) is used by default to ensure reproducibility.
 
@@ -223,8 +223,4 @@ This repository contains a simplified version of the research code. Only the com
 
 
 The code is provided for research and reproducibility purposes.
-
-
-
-
 
