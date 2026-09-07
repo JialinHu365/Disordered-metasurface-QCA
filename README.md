@@ -92,11 +92,11 @@ from the configuration file.
 
 The calculated results are saved in:
 
-results/
+`results/`
 
 The figures are saved in:
 
-figure/
+`figure/`
 
 
 
@@ -108,13 +108,13 @@ figure/
 
 The complete theoretical data corresponding to Figures 3–5 are provided in the `theory_data/` directory for reference:
 
-theory\_data/
+`theory\_data/`
 
-├──Figure3/
+├──`Figure3/`
 
-├──Figure4/
+├──`Figure4/`
 
-├──Figure5/
+├──`Figure5/`
 
 
 
