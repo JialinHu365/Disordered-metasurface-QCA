@@ -68,7 +68,7 @@ The parameters can be modified in config.py.
 
 The figures presented in the paper can be reproduced using the functions
 
-provided in the *main* script.
+provided in the main.py script.
 
 
 
@@ -118,11 +118,11 @@ theory\_data/
 
 
 
-These folders contain the calculated quantities used in the theoretical analysis, including the pair-correlation function g2,polarizability tensor, and reflection and transmission coefficients.
+These folders contain the calculated quantities used in the theoretical analysis, including the pair-correlation function g2, polarizability tensor, and reflection and transmission coefficients.
 
 
 
-The figure-generation functions do not directly read data from theory\_data/. During reproduction, the required input data, such as the precomputed g2 and particle coordinates, are loaded from the results/directory. The subsequent quantities are then recalculated and the corresponding outputs are also saved in results/.
+The figure-generation functions do not directly read data from 'theory\_data/'. During reproduction, the required input data, such as the precomputed g2 and particle coordinates, are loaded from the results/directory. The subsequent quantities are then recalculated and the corresponding outputs are also saved in 'results/'.
 
 
 
