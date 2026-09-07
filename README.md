@@ -108,7 +108,7 @@ The figures are saved in:
 
 The complete theoretical data corresponding to Figures 3–5 are provided in the `theory_data/` directory for reference:
 
-`theory\_data/`
+`theory_data/`
 
 ├──`Figure3/`
 
