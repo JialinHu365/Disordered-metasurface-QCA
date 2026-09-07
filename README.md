@@ -106,7 +106,7 @@ figure/
 
 ##### Theory data
 
-The complete theoretical data corresponding to Figures 3–5 are provided in the `theory\\\_data/` directory for reference:
+The complete theoretical data corresponding to Figures 3–5 are provided in the `theory_data/` directory for reference:
 
 theory\_data/
 
