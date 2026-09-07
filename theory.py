@@ -111,7 +111,7 @@ def create_g2_points(fs, radius, distance_factor, N, write=False, n_realisation=
             distance_factor_str = str(int(round(distance_factor)))
         else:
             distance_factor_str = f"{distance_factor:.3f}".rstrip("0").rstrip(".")
-        position_file = (f'./results/particle_positions_g2/RSA/fs={fs}_r={radius}_({distance_factor_str}r).npy')
+        position_file = (f'./Results/particle_positions_g2/RSA/fs={fs}_r={radius}_({distance_factor_str}r).npy')
         np.save(position_file, position)
     return position
 
@@ -279,7 +279,7 @@ def fct_pair_correlation(fs, radius, configuration_model, distance_factor, chi, 
         """
         
         if configuration_model == 'SHU':
-            coord_file = (f'./results/particle_positions_g2/SHU/fs={fs}_r={radius}_chi={chi}.npy')
+            coord_file = (f'./Results/particle_positions_g2/SHU/fs={fs}_r={radius}_chi={chi}.npy')
             N = 201
 
         elif configuration_model == 'RSA':
@@ -287,7 +287,7 @@ def fct_pair_correlation(fs, radius, configuration_model, distance_factor, chi, 
                 distance_factor_str = str(int(round(distance_factor)))
             else:
                 distance_factor_str = f"{distance_factor:.3f}".rstrip("0").rstrip(".")
-            coord_file = (f'./results/particle_positions_g2/RSA/fs={fs}_r={radius}_({distance_factor_str}r).npy')
+            coord_file = (f'./Results/particle_positions_g2/RSA/fs={fs}_r={radius}_({distance_factor_str}r).npy')
             N = 1000
 
         if os.path.isfile(coord_file):
@@ -333,25 +333,25 @@ def fct_pair_correlation(fs, radius, configuration_model, distance_factor, chi, 
         g2 = pair_counts
         
         if configuration_model == 'SHU':
-            data_name = './results/g2/g2_original/'+configuration_model+'_[chi='+chi+']_g2_fs='+str(fs)+'_r='+str(radius)+'_nbins=500.npy'    
+            data_name = './Results/g2/g2_original/'+configuration_model+'_[chi='+chi+']_g2_fs='+str(fs)+'_r='+str(radius)+'_nbins=500.npy'    
         else:    
             if np.isclose(distance_factor, round(distance_factor)):
                 distance_factor_str = str(int(round(distance_factor)))
             else:
                 distance_factor_str = f"{distance_factor:.3f}".rstrip("0").rstrip(".")
-            data_name = './results/g2/g2_original/'+configuration_model+'_g2_fs='+str(fs)+'_r='+str(radius)+'_d='+str(distance_factor_str )+'r_nbins=500.npy'    
+            data_name = './Results/g2/g2_original/'+configuration_model+'_g2_fs='+str(fs)+'_r='+str(radius)+'_d='+str(distance_factor_str )+'r_nbins=500.npy'    
         np.save(data_name, g2)
         return g2, N
     
     
     if configuration_model == 'SHU':
-        data_name = './results/g2/g2_original/'+configuration_model+'_[chi='+chi+']_g2_fs='+str(fs)+'_r='+str(radius)+'_nbins=500.npy'    
+        data_name = './Results/g2/g2_original/'+configuration_model+'_[chi='+chi+']_g2_fs='+str(fs)+'_r='+str(radius)+'_nbins=500.npy'    
     else:    
         if np.isclose(distance_factor, round(distance_factor)):
             distance_factor_str = str(int(round(distance_factor)))
         else:
             distance_factor_str = f"{distance_factor:.3f}".rstrip("0").rstrip(".")
-        data_name = './results/g2/g2_original/'+configuration_model+'_g2_fs='+str(fs)+'_r='+str(radius)+'_d='+str(distance_factor_str )+'r_nbins=500.npy'    
+        data_name = './Results/g2/g2_original/'+configuration_model+'_g2_fs='+str(fs)+'_r='+str(radius)+'_d='+str(distance_factor_str )+'r_nbins=500.npy'    
     
     if os.path.isfile(data_name):
         g2_raw = np.load(data_name)
@@ -402,7 +402,7 @@ def fct_pair_correlation(fs, radius, configuration_model, distance_factor, chi, 
         
     if save == True:
         if configuration_model == 'SHU':
-            g2_file = (f'./results/g2/{configuration_model}_[chi={chi}]_g2_fs={fs}_r={radius}.npy')
+            g2_file = (f'./Results/g2/{configuration_model}_[chi={chi}]_g2_fs={fs}_r={radius}.npy')
             
         elif configuration_model == 'RSA':
             
@@ -410,7 +410,7 @@ def fct_pair_correlation(fs, radius, configuration_model, distance_factor, chi, 
                 distance_factor_str = str(int(round(distance_factor)))
             else:
                 distance_factor_str = f"{distance_factor:.3f}".rstrip("0").rstrip(".")
-            g2_file = (f'./results/g2/{configuration_model}_g2_fs={fs}_r={radius}_({distance_factor_str}r).npy')
+            g2_file = (f'./Results/g2/{configuration_model}_g2_fs={fs}_r={radius}_({distance_factor_str}r).npy')
     
         np.save(g2_file,g2_interp)    
         
@@ -655,13 +655,13 @@ def fct_polarizability_tensor(angle, fs, radius, distance_factor, chi, configura
         g2_extended = np.ones_like(r_range[index_rmin:])
     else:
         if configuration_model == 'SHU':
-            g2_file = (f'./results/g2/{configuration_model}_[chi={chi}]_g2_fs={fs}_r={radius}.npy')
+            g2_file = (f'./Results/g2/{configuration_model}_[chi={chi}]_g2_fs={fs}_r={radius}.npy')
         elif configuration_model == 'RSA':  
             if np.isclose(distance_factor, round(distance_factor)):
                 distance_factor_str = str(int(round(distance_factor)))
             else:
                 distance_factor_str = f"{distance_factor:.3f}".rstrip("0").rstrip(".")
-            g2_file = (f'./results/g2/{configuration_model}_g2_fs={fs}_r={radius}_({distance_factor_str}r).npy')
+            g2_file = (f'./Results/g2/{configuration_model}_g2_fs={fs}_r={radius}_({distance_factor_str}r).npy')
         g2 = np.load(g2_file)  
         g2_extended = np.ones_like(r_range)
         g2_extended[:len(g2)] = g2
@@ -706,13 +706,13 @@ def fct_polarizability_tensor(angle, fs, radius, distance_factor, chi, configura
         tensor_polarizability[i,2] = matrice_inv[2,2] 
     if write:
         if configuration_model == 'SHU':
-            tensor_file = (f'./results/polarizability_tensor/resolution={resolution}/{configuration_model}_[chi={chi}]_fs={fs}_r={radius}_{angle}°')
+            tensor_file = (f'./Results/polarizability_tensor/resolution={resolution}/{configuration_model}_[chi={chi}]_fs={fs}_r={radius}_{angle}°')
         else:     
             if np.isclose(distance_factor, round(distance_factor)):
                 distance_factor_str = str(int(round(distance_factor)))
             else:
                 distance_factor_str = f"{distance_factor:.3f}".rstrip("0").rstrip(".")
-            tensor_file = (f'./results/polarizability_tensor/resolution={resolution}/{configuration_model}_fs={fs}_r={radius}_{angle}°_({distance_factor_str}r)')
+            tensor_file = (f'./Results/polarizability_tensor/resolution={resolution}/{configuration_model}_fs={fs}_r={radius}_{angle}°_({distance_factor_str}r)')
         np.save(tensor_file, tensor_polarizability)
     return  tensor_polarizability
 
@@ -768,13 +768,13 @@ def fct_r_t (fs, radius, angle, configuration_model, distance_factor, chi, polar
     polarizability_Mie = fct_polarizability_Mie(radius_um, wavelength_range, n_particle, n_host)
     
     if configuration_model == 'SHU':
-        tensor_file =  (f'./results/polarizability_tensor/resolution={resolution}/{configuration_model}_[chi={chi}]_fs={fs}_r={radius}_{angle}°.npy')
+        tensor_file =  (f'./Results/polarizability_tensor/resolution={resolution}/{configuration_model}_[chi={chi}]_fs={fs}_r={radius}_{angle}°.npy')
     else:
         if np.isclose(distance_factor, round(distance_factor)):
             distance_factor_str = str(int(round(distance_factor)))
         else:
             distance_factor_str = f"{distance_factor:.3f}".rstrip("0").rstrip(".")
-        tensor_file = (f'./results/polarizability_tensor/resolution={resolution}/{configuration_model}_fs={fs}_r={radius}_{angle}°_({distance_factor_str}r).npy')
+        tensor_file = (f'./Results/polarizability_tensor/resolution={resolution}/{configuration_model}_fs={fs}_r={radius}_{angle}°_({distance_factor_str}r).npy')
     
     tensor_polarizability = np.load(tensor_file)
     number_density = fs/(np.pi*np.power(radius_um,2))
@@ -805,7 +805,7 @@ def fct_r_t (fs, radius, angle, configuration_model, distance_factor, chi, polar
     
     if write:
         base_path = (
-            f'./results/reflection_transmission_coefficients/resolution={resolution}/'
+            f'./Results/reflection_transmission_coefficients/resolution={resolution}/'
             )
         
         if configuration_model == 'SHU':
@@ -896,13 +896,13 @@ def fct_run(config, wavelength_range):
     distance_factor = 2*np.sqrt(p/fs)
     
     if configuration_model == 'SHU':
-        g2_file = (f'./results/g2/{configuration_model}_[chi={chi}]_g2_fs={fs}_r={radius}.npy')
+        g2_file = (f'./Results/g2/{configuration_model}_[chi={chi}]_g2_fs={fs}_r={radius}.npy')
     elif configuration_model == 'RSA': 
         if np.isclose(distance_factor, round(distance_factor)):
             distance_factor_str = str(int(round(distance_factor)))
         else:
             distance_factor_str = f"{distance_factor:.3f}".rstrip("0").rstrip(".")
-        g2_file = (f'./results/g2/{configuration_model}_g2_fs={fs}_r={radius}_({distance_factor_str}r).npy')
+        g2_file = (f'./Results/g2/{configuration_model}_g2_fs={fs}_r={radius}_({distance_factor_str}r).npy')
     if not os.path.isfile(g2_file):
         print('Generating two-particle correlation function ...')
         g2 = fct_pair_correlation(fs, radius, configuration_model, distance_factor, chi, save=True)
@@ -912,7 +912,7 @@ def fct_run(config, wavelength_range):
     print('Generating reflection and transmission coefficients of metasurface...')
     r_coh, t_coh = fct_r_t(fs, radius, angle, configuration_model, distance_factor, chi, polarization_mode, wavelength_range, resolution, n_TiO2, n_Ag, structure, write=True)
       
-    print('Generating reflection and transmission spectrals')
+    print('Generating reflection and transmission spectrums')
    
   
     if structure == 'homogeneous':
@@ -944,14 +944,14 @@ def fct_run(config, wavelength_range):
             
     if write:
         if configuration_model == 'SHU': 
-            file_spectre = (f'./results/spectral/resolution={resolution}/('+ base_name +f')_{configuration_model}_fs={fs}_r={radius}_h={h}_{angle}°_{polarization_mode}_(chi={chi})_W={thickness}nm.npy')
+            file_spectrum = (f'./Results/Spectrum/resolution={resolution}/('+ base_name +f')_{configuration_model}_fs={fs}_r={radius}_h={h}_{angle}°_{polarization_mode}_(chi={chi})_W={thickness}nm.npy')
         else: 
             if np.isclose(distance_factor, round(distance_factor)):
                 distance_factor_str = str(int(round(distance_factor)))
             else:
                 distance_factor_str = f"{distance_factor:.3f}".rstrip("0").rstrip(".")
-            file_spectre = (f'./results/spectral/resolution={resolution}/('+base_name+ f')_{configuration_model}_fs={fs}_r={radius}_h={h}_{angle}°_{polarization_mode}_(d={distance_factor_str}r)_W={thickness}nm.npy')
+            file_spectrum = (f'./Results/spectrum/resolution={resolution}/('+base_name+ f')_{configuration_model}_fs={fs}_r={radius}_h={h}_{angle}°_{polarization_mode}_(d={distance_factor_str}r)_W={thickness}nm.npy')
  
-        np.save(file_spectre, np.column_stack((R,T)))
+        np.save(file_spectrum, np.column_stack((R,T)))
 
     return R, T

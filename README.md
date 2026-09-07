@@ -88,7 +88,7 @@ The required input data and calculation parameters are automatically loaded from
 
 The calculated results are saved in:
 
-`results/`
+`Results/`
 
 The figures are saved in:
 
@@ -119,7 +119,7 @@ These folders contain the calculated quantities used in the theoretical analysis
 
 
 
-The figure-generation functions do not directly read data from `theory_data/`. During reproduction, the required input data, such as the precomputed g2 and particle coordinates, are loaded from the `results/` directory. The subsequent quantities are then recalculated and the corresponding outputs are also saved in `results/`.
+The figure-generation functions do not directly read data from `theory_data/`. During reproduction, the required input data, such as the precomputed g2 and particle coordinates, are loaded from the `Results/` directory. The subsequent quantities are then recalculated and the corresponding outputs are also saved in `Results/`.
 
 
 
