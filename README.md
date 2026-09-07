@@ -83,10 +83,7 @@ python main.py Figure("Figure5")
 
 ```
 
-The required input data and calculation parameters are automatically loaded
-
-from the configuration file.
-
+The required input data and calculation parameters are automatically loaded from the configuration file.  
 
 
 The calculated results are saved in:
@@ -196,7 +193,7 @@ Due to the stochastic nature of the configuration generation, results may differ
 
 
 
-##### Units
+## Units
 
 Unless otherwise specified:
 
@@ -216,7 +213,7 @@ surface filling fraction/packing fraction: dimensionless
 
 
 
-##### Notes
+## Notes
 
 This repository contains a simplified version of the research code. Only the components required to reproduce the calculations reported in the paper are included.
 
