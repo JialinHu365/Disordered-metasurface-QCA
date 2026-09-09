@@ -28,8 +28,6 @@ The SMUTHI output files may contain additional calculated quantities, such as sc
 
 
 
-The SHU pair-correlation data were generated using the implementation cited and described in the README. Their provenance and the transformations applied to the underlying configurations are documented there.
-
 
 
 
@@ -60,6 +58,10 @@ The refractive-index data for Titania  were provided within the research group b
 
 These internally provided refractive-index data are not covered by the repository's CC BY 4.0 data license and should not be redistributed independently without permission from the relevant rights holder(s).
 
+
+
+## SHU pair-correlation data
+The SHU pair-correlation data were generated using the implementation cited and described in the README. Their provenance and the transformations applied to the underlying configurations are documented there.
 
 
 
