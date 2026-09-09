@@ -245,23 +245,19 @@ def fct_polarizability_tensor(angle, fs, radius, distance_factor, chi, configura
     
     theta = np.deg2rad(angle)
     
-    if configuration_model == 'hole':
-        index_rmin = np.argwhere(r_range>=rmin)[0][0]
-        g2_extended = np.ones_like(r_range[index_rmin:])
-    else:
-        if configuration_model == 'SHU':
-            g2_file = (f'./Results/g2/{configuration_model}_[chi={chi}]_g2_fs={fs}_r={radius}.npy')
-        elif configuration_model == 'RSA':  
-            if np.isclose(distance_factor, round(distance_factor)):
-                distance_factor_str = str(int(round(distance_factor)))
-            else:
-                distance_factor_str = f"{distance_factor:.3f}".rstrip("0").rstrip(".")
-            g2_file = (f'./Results/g2/{configuration_model}_g2_fs={fs}_r={radius}_({distance_factor_str}r).npy')
-        g2 = np.load(g2_file)  
-        g2_extended = np.ones_like(r_range)
-        g2_extended[:len(g2)] = g2
-        g2_extended = g2_extended[1:]
-        index_rmin = 1    
+    if configuration_model == 'SHU':
+        g2_file = (f'./Results/g2/{configuration_model}_[chi={chi}]_g2_fs={fs}_r={radius}.npy')
+    elif configuration_model == 'RSA':  
+        if np.isclose(distance_factor, round(distance_factor)):
+            distance_factor_str = str(int(round(distance_factor)))
+        else:
+            distance_factor_str = f"{distance_factor:.3f}".rstrip("0").rstrip(".")
+        g2_file = (f'./Results/g2/{configuration_model}_g2_fs={fs}_r={radius}_({distance_factor_str}r).npy')
+    g2 = np.load(g2_file)  
+    g2_extended = np.ones_like(r_range)
+    g2_extended[:len(g2)] = g2
+    g2_extended = g2_extended[1:]
+    index_rmin = 1    
     if angle == 0:
         fct_xx = np.array([[fct_integrale_xx_0(r_range[j], k_host[i]) for j in range(index_rmin,len(r_range))] for i in range(len(wavelength_range))])
         fct_zz = np.array([[fct_integrale_zz_0(r_range[j], k_host[i]) for j in range(index_rmin,len(r_range))] for i in range(len(wavelength_range))])
