@@ -12,8 +12,8 @@ import numpy as np
 @dataclass(frozen=True)
 class SpectralRange:
     wl_min: int = 350
-    wl_max: int = 801
-    resolution: int = 10
+    wl_max: int = 751
+    resolution: int = 3
     unit: str = 'nm'
     
     def array(self):

@@ -78,11 +78,11 @@ To reproduce Figure 3-5:
 
 ```bash
 
-python main.py Figure("Figure3")
+python main.py Figure3
 
-python main.py Figure("Figure4")
+python main.py Figure4
 
-python main.py Figure("Figure5")
+python main.py Figure5
 
 ```
 

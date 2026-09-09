@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+
+Results/polarizability_tensor/resolution=3/*
+!Results/polarizability_tensor/resolution=3/.gitkeep
+
+Results/reflection_transmission_coefficients/resolution=3/*
+!Results/reflection_transmission_coefficients/resolution=3/.gitkeep
+
+Results/Spectrum/resolution=3/*
+!Results/Spectrum/resolution=3/.gitkeep
