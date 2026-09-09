@@ -18,8 +18,8 @@ Unless otherwise indicated, the CC BY 4.0 license applies to research data gener
 
 * pair-correlation function (`g2`) data;
 * polarizability tensor data;
-* theoretical reflection and transmission coefficients (`r/t`);
-* theoretical reflectance and transmittance results (`R/T`);
+* theoretical coherent reflection and transmission coefficients of the particle monolayer (`r_coh/t_coh`)
+* theoretical reflectance and transmittance of multilayer structure (`R/T`);
 * numerical optical-response data generated using SMUTHI.
 
 

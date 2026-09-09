@@ -49,7 +49,9 @@ The main files are:
 
 `theory.py`
 
-&#x09;Contains the main theoretical expressions and numerical procédures, including the calculation of \[coherent reflection/transmission coefficient of the particle monolayer and  reflection/transmission coefficient of multiple-layered structure]
+&#x09;Contains the main theoretical expressions and numerical procédures, including the calculation of 
+- theoretical coherent reflection and transmission coefficients of the particle monolayer (`r_coh/t_coh`);
+- theoretical reflectance and transmittance of multilayer structure (`R/T`);
 
 `main.py`
 
