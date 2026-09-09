@@ -43,15 +43,15 @@ pip install numpy scipy matplotlib
 
 The main files are:
 
-###### config.py
+`config.py`
 
 &#x09;Contains the physical and numerical parameters used in the calculations
 
-###### theory.py
+`theory.py`
 
 &#x09;Contains the main theoretical expressions and numerical procédures, including the calculation of \[g2(r), coherent reflection/transmission coefficient of the particle monolayer and  reflection/transmission coefficient of multiple-layered structure]
 
-###### main.py
+`main.py`
 
 &#x09;Main script used to reproduce the calculations presented in the paper.
 
