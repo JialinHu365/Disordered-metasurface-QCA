@@ -61,13 +61,13 @@ The main files are:
 
 ## Usage
 
-The parameters can be modified in *config.py*.
+The parameters can be modified in `config.py`.
 
 
 
 The figures presented in the paper can be reproduced using the functions
 
-provided in the *main.py* script.
+provided in the `main.py` script.
 
 
 
@@ -102,8 +102,14 @@ The figures are saved in:
 
 ## Theory data
 
+The repository contains both numerical reference results and data generated using the theoretical model.
 
-The complete theoretical data corresponding to Figures 3–5 are provided in the `theory_data/` directory for reference:  
+* `numerical_ref/`: numerical reference results obtained using SMUTHI.
+* `theory_data/`: theoretical datasets corresponding to the results presented in the associated publication, including pair-correlation functions, polarizability tensors, reflection/transmission coefficients, and reflectance/transmittance.
+* `Results/`: working directory used during code execution. The `g2/` subdirectory contains the precomputed pair-correlation functions required as input, while the other subdirectories are initially empty and are used to store newly calculated quantities.
+
+
+The complete theoretical datasets corresponding to Figures 3–5 are provided in the `theory_data/` directory for reference:  
 
 `theory_data/`
 
@@ -115,33 +121,21 @@ The complete theoretical data corresponding to Figures 3–5 are provided in the
 
 
 
-These folders contain the calculated quantities used in the theoretical analysis, including the pair-correlation function g2, polarizability tensor, and reflection and transmission coefficients.
+These folders contain the calculated quantities used to obtain the theoretical results shown in the corresponding figures.
 
+The SHU pair-correlation functions (`g2`) used in the calculations are provided directly. They were obtained from SHU configurations generated using the implementation of Ref. [1] and subsequently rescaled to the system dimensions considered in this work.
 
+The figure-generation functions do not directly read the archived datasets stored in `theory_data/`. During reproduction, the required precomputed `g2` data are loaded from the `Results/g2/` directory. The subsequent quantities are recalculated and saved in the corresponding subdirectories of `Results/`.
 
-The figure-generation functions do not directly read data from `theory_data/`. During reproduction, the required input data, such as the precomputed g2 and particle coordinates, are loaded from the `Results/` directory. The subsequent quantities are then recalculated and the corresponding outputs are also saved in `Results/`.
-
-
-
-
+The datasets provided in `theory_data/` correspond to the theoretical results used to generate Figures 3–5 in the associated publication and are retained as reference data for comparison with newly reproduced results.
 
 
 
 ## Calculation workflow
 
-The main calculation follows the sequence:
+The complete theoretical workflow involves the generation of particle configurations and the calculation of `g2(r)`. In the public reproduction code, the precomputed `g2(r)` data are provided directly, and the calculation starts from these data. The public reproduction code follows the sequence:
 
-
-
-Input parameters
-
-&#x09;↓
-
-Generation of particle configurations
-
-&#x09;↓
-
-Calculation of the pair-correlation function g2(r)
+Input parameters and the pair-correlation function `g2(r)`
 
 &#x09;↓
 
@@ -153,11 +147,11 @@ Calculation of the reflection/transmission coefficients of the particle monolaye
 
 &#x09;↓
 
-Calculation of the reflection/transmission coefficients of the multiple-layered structure
+Calculation of the reflection/transmission coefficients of the multilayer structure
 
 &#x09;↓
 
-Optical Spectrum
+Optical spectrum
 
 
 
@@ -169,24 +163,9 @@ The implementation follows the equations described in the main text and Supporti
 
 
 
-
-
-
-
 ## Reproducibility
 
-For calculations involving randomly generated particle configurations, a fixed random seed (seed = 0) is used by default to ensure reproducibility.
-
-
-
-The numerical parameters used to generate the results reported in the paper are provided in *config.py*.
-
-
-
-Due to the stochastic nature of the configuration generation, results may differ slightly if the random seed or the number of realizations is modified.
-
-
-
+The numerical parameters used to generate the results reported in the paper are provided in `config.py`.
 
 
 
@@ -197,11 +176,11 @@ Due to the stochastic nature of the configuration generation, results may differ
 
 Unless otherwise specified:
 
-wavelength: nm
+wavelength: `nm`
 
-particle radius: nm
+particle radius: `nm`
 
-angle: degree
+angle: `degree`
 
 surface filling fraction/packing fraction: dimensionless
 
@@ -215,9 +194,24 @@ surface filling fraction/packing fraction: dimensionless
 
 ## Notes
 
-This repository contains a simplified version of the research code. Only the components required to reproduce the calculations reported in the paper are included.
+This repository contains a simplified version of the research code. Only the components required to reproduce the theoretical calculations reported in the paper are included.
+
+The pair-correlation functions (`g2`) used in the calculations are provided as precomputed input data and are not regenerated by the public reproduction code.
+
+The code therefore reproduces the theoretical workflow starting from the provided `g2` data.
 
 
 
-The code is provided for research and reproducibility purposes.
+## License
+The source code in this repository is licensed under the MIT License. See the `LICENSE` file for details.
+
+Unless otherwise indicated, the research data generated within this work are licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0). See `DATA_LICENSE.md` for details.
+
+Third-party input data, including the refractive-index values used in the calculations, are not covered by the CC BY 4.0 license. Their provenance and applicable terms are documented in `DATA_LICENSE.md`.
+
+Please cite the associated publication when using the code or data from this repository.
+
+
+## Citation
+[1] L. S. Froufe-Pérez et al., “Role of Short-Range Order and Hyperuniformity in the Formation of Band Gaps in Disordered Photonic Materials,” Phys. Rev. Lett., vol. 117, no. 5, p. 053902, Jul. 2016, doi: 10.1103/PhysRevLett.117.053902.
 
