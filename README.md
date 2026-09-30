@@ -150,13 +150,13 @@ For example:
 
 The datasets can be loaded using NumPy, for example:
 
-data = np.load("theory_data/Figure3_<parameter>.npz")
+data = np.load(`"theory_data/Figure3_<parameter>.npz"`)
 
 and individual quantities can then be accessed by name, e.g.
 
-wavelength = data["wavelength"]
+wavelength = data[`"wavelength"`]
 
-spectrum = data["RT_spectrum"]
+spectrum = data[`"RT_spectrum"`]
 
 
 The SHU pair-correlation functions (`g2`) used in the calculations are provided directly. They were obtained from SHU configurations generated using the implementation of Ref. [1] and subsequently rescaled to the system dimensions considered in this work.
