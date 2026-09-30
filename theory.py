@@ -229,7 +229,7 @@ def fct_polarizability_tensor(angle, fs, radius, distance_factor, chi, configura
     
     number_density = fs/(np.pi*np.power(radius_um,2))
   
-    rmin = distance_factor*radius*1e-3 
+   
     dr =  0.0005 
     r_max = 7.5
     integration_start = 10001
@@ -237,7 +237,7 @@ def fct_polarizability_tensor(angle, fs, radius, distance_factor, chi, configura
     
     r_range = np.arange(0,r_max,dr)
 
-    identity_matrix = np.diag([1,1,1])
+    identity_matrix = np.eye(3) #np.diag([1,1,1])
     
     tensor_polarizability = np.zeros((len(wavelength_range),3),dtype=complex)
     
@@ -295,6 +295,7 @@ def fct_polarizability_tensor(angle, fs, radius, distance_factor, chi, configura
         tensor_polarizability[i,0] = matrice_inv[0,0] 
         tensor_polarizability[i,1] = matrice_inv[1,1] 
         tensor_polarizability[i,2] = matrice_inv[2,2] 
+
     if write:
         if configuration_model == 'SHU':
             tensor_file = (f'./Results/polarizability_tensor/resolution={resolution}/{configuration_model}_[chi={chi}]_fs={fs}_r={radius}_{angle}°')

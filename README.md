@@ -108,23 +108,56 @@ The figures are saved in:
 The repository contains both numerical reference results and data generated using the theoretical model.
 
 * `numerical_ref/`: numerical reference results obtained using SMUTHI.
-* `theory_data/`: theoretical datasets corresponding to the results presented in the associated publication, including pair-correlation functions, polarizability tensors, reflection/transmission coefficients, and reflectance/transmittance.
+* `theory_data/`: theoretical datasets corresponding to the results presented in the associated publication. Each `.npz` file contains the complete dataset for one parameter configuration used in Figures 3–5.
 * `Results/`: working directory used during code execution. The `g2/` subdirectory contains the precomputed pair-correlation functions required as input, while the other subdirectories are initially empty and are used to store newly calculated quantities.
 
 
-The complete theoretical datasets corresponding to Figures 3–5 are provided in the `theory_data/` directory for reference:  
+The complete theoretical datasets corresponding to Figures 3–5 are provided in the `theory_data/` directory for reference. The files follow the naming convention  
+
+`FigureX_<parameter>.npz`
+
+where X denotes the figure number and <parameter> identifies the corresponding parameter configuration.
+
+
+Each `.npz` file contains the following arrays:
+
+`wavelength`: wavelength values used in the calculation.
+
+`g2_function`: pair-correlation function used for the corresponding configuration.
+
+`dressed_tensor`: calculated dressed polarizability tensor.
+
+`rt_coefficients`: reflection and transmission coefficients.
+
+`RT_spectrum`: calculated reflectance and transmittance spectra.
+
+For example:
 
 `theory_data/`
 
-├──`Figure3/`
+`Figure3_RSA_p0.20_0°_TE.npz`
 
-├──`Figure4/`
+`Figure3_RSA_p0.20_60°_TE.npz`
 
-├──`Figure5/`
+`Figure3_RSA_p0.20_60°_TM.npz`
+
+`Figure4_RSA_p0.20_0°_TE.npz`
+
+...
+
+`Figure5_SHU_h150_0°_TE.npz`
 
 
+The datasets can be loaded using NumPy, for example:
 
-These folders contain the calculated quantities used to obtain the theoretical results shown in the corresponding figures.
+data = np.load("theory_data/Figure3_<parameter>.npz")
+
+and individual quantities can then be accessed by name, e.g.
+
+wavelength = data["wavelength"]
+
+spectrum = data["RT_spectrum"]
+
 
 The SHU pair-correlation functions (`g2`) used in the calculations are provided directly. They were obtained from SHU configurations generated using the implementation of Ref. [1] and subsequently rescaled to the system dimensions considered in this work.
 

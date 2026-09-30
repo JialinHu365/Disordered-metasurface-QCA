@@ -9,3 +9,5 @@ Results/reflection_transmission_coefficients/resolution=3/*
 
 Results/Spectrum/resolution=3/*
 !Results/Spectrum/resolution=3/.gitkeep
+
+theory_data/data_storage
